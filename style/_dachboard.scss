@@ -1,0 +1,905 @@
+.weather{
+    padding: 68px 0;
+    background: linear-gradient(110deg, #383838 0%, rgba(158, 158, 158, 0.00) 71.82%);
+}
+
+
+
+.weatherPanel{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 49px;
+
+    &__mode{
+        
+        &_div{
+            width: 100px;
+            height: 38.6px;
+            border-radius: 40px;
+            background: #D9D9D9;
+            position: relative;
+
+            &_joystick{
+                width: 30px;
+                height: 30px;
+                background-color: #111;
+                border-radius: 50%;
+                position: absolute;
+                top: 5px;
+                right: 13px;
+            }
+        }
+
+        &_text{
+            color: #FFF;
+            font-family: 'Poppins';
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+            padding-left: 2px;
+        }
+    }
+
+    &__location{
+        width: 292px;
+        height: 62px;
+        border-radius: 40px;
+        background: #4CBB17;
+        box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
+        padding: 14px 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+
+        &_img{
+            width: 35px;
+            height: 35px;
+        }
+
+        &_text{
+            color: rgba(255, 255, 255, 0.80);
+            text-align: center;
+            font-family: 'Poppins';
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: normal;
+        }
+    }
+}
+
+.form{
+    max-width: 803px;
+    width: 100%;
+    position: relative;
+
+    &__img{
+        position: absolute;
+        left: 33px;
+        top: 8px;
+    }
+}
+.input{
+    max-width: 803px;
+    width: 100%;
+    height: 62px;
+    border-radius: 40px;
+    background: #444;
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
+    border: none;
+    padding-left: 102px;
+    color: rgba(255, 255, 255, 0.60);
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.allInformation{
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+
+    &__1{
+        display: flex;
+        flex-direction: row;
+        gap: 55px;
+    }
+    &__2{
+        display: flex;
+        flex-direction: row;
+        gap: 61px;
+    }
+}
+
+.location{
+    max-width: 510px;
+    width: 100%;
+    border-radius: 30px;
+    background: #444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 53px 107px 48px 107px;
+    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
+
+    &__city{
+        color: #FFF;
+        font-family: 'Poppins';
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom: 48px;
+    }
+
+    &__time{
+        color: #FFF;
+        font-family: 'Poppins';
+        font-size: 96px;
+        font-style: normal;
+        font-weight: 700;
+        // line-height: normal;
+    }
+
+    &__data{
+        color: #FFF;
+        font-family: 'Poppins';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+.weatherDetails{
+    width: 780px;
+    border-radius: 30px;
+    background: #444;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 24px;
+    justify-content: space-between;
+    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
+
+    &__main{
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        justify-content: space-between;
+
+        &_temperature{
+            display: flex;
+            flex-direction: column;
+
+            &_base{
+                font-family: 'Poppins';
+                font-size: 80px;
+                font-style: normal;
+                font-weight: 700;
+                background: linear-gradient(84deg, #FFF -16.56%, rgba(255, 255, 255, 0.00) 118.43%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            &_feels{
+                display: flex;
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+
+                &_text1{
+                    color: rgba(255, 255, 255, 0.80);
+                    font-family: 'Poppins';
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+
+                &_text2{
+                    color: rgba(255, 255, 255, 0.80);
+                    font-family: 'Poppins';
+                    font-size: 32px;
+                    font-style: normal;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        &_sun{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            &_rise{
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+
+                &_img{
+
+                }
+
+                &_info{
+                    display: flex;
+                    flex-direction: column;
+
+                    &_whatIs{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        // line-height: normal;
+                        margin-bottom: 7px;
+                    }
+
+                    &_time{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                }
+            }
+
+            &_set{
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+
+                &_img{
+
+                }
+
+                &_info{
+                    display: flex;
+                    flex-direction: column;
+
+                    &_whatIs{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        // line-height: normal;
+                        margin-bottom: 7px;
+                    }
+
+                    &_time{
+                        color: #FFF;
+                        font-family: 'Poppins';
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    &__weather{
+        display: flex;
+        flex-direction: column;
+
+        &_img{
+            width: 230px;
+            height: 230px;
+        }
+
+        &_text{
+            color: #FFF;
+            text-align: center;
+            font-family: 'Poppins';
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+
+    &__details{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &_1{
+            display: flex;
+            flex-direction: row;
+            gap: 17px;
+        }
+        &_2{
+            display: flex;
+            flex-direction: row;
+            gap: 17px;
+        }
+
+        &_humidity{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_img{
+                margin-bottom: 10px;
+            }
+
+            &_percentage{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-bottom: 10px;
+            }
+
+            &_text{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+        &_windSpeed{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_img{
+                // margin-bottom: 6px;
+            }
+
+            &_percentage{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-bottom: 12px;
+            }
+
+            &_text{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+        &_pressure{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_img{
+                width: 58px;
+                height: 58px;
+                margin-bottom: 10px;
+            }
+
+            &_percentage{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-bottom: 15px;
+            }
+
+            &_text{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+            
+        }
+        &_UV{
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &_img{
+                margin-bottom: 10px;
+            }
+
+            &_percentage{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin-bottom: 15px;
+            }
+
+            &_text{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+    }
+}
+
+.dailyForecast{
+    width: 414px;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 14px 8px 30px;
+    border-radius: 30px;
+    background: #444;
+    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
+
+    &__text{
+        color: #FFF;
+        text-align: center;
+        font-family: 'Poppins';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    &__div{
+        display: flex;
+        flex-direction: column;
+
+        &_day1{
+            display: flex;
+            flex-direction: row;
+            gap: 43px;
+
+            &_temperature{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
+            &_data{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                width: 163px;
+                justify-content: center;
+            }
+        }
+        &_day2{
+            display: flex;
+            flex-direction: row;
+            gap: 43px;
+
+            &_temperature{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
+            &_data{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                width: 163px;
+                justify-content: center;
+            }
+        }
+        &_day3{
+            display: flex;
+            flex-direction: row;
+            gap: 43px;
+
+            &_temperature{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
+            &_data{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                width: 163px;
+                justify-content: center;
+            }
+        }
+        &_day4{
+            display: flex;
+            flex-direction: row;
+            gap: 43px;
+
+            &_temperature{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
+            &_data{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                width: 163px;
+                justify-content: center;
+            }
+        }
+        &_day5{
+            display: flex;
+            flex-direction: row;
+            gap: 43px;
+
+            &_temperature{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+            }
+
+            &_data{
+                color: #FFF;
+                text-align: center;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                display: flex;
+                align-items: center;
+                width: 163px;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.hourlyForecast{
+    width: 870px;
+    border-radius: 30px;
+    background: #444;
+    box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
+    padding: 13px 80px 16px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 19px;
+
+    &__text{
+        color: #FFF;
+        font-family: 'Poppins';
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    &__div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+
+        &_hour1{
+            width: 130px;
+            border-radius: 40px;
+            background: #373636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 25px 18px 25px;
+
+            &_time{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            &_img{
+                width: 80px;
+                height: 80px;
+
+                &_direction{
+                    width: 55px;
+                    height: 55px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &_temperature{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 5px;
+            }
+
+            &_speed{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+        &_hour2{
+            width: 130px;
+            border-radius: 40px;
+            background: #373636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 25px 18px 25px;
+
+            &_time{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            &_img{
+                width: 80px;
+                height: 80px;
+
+                &_direction{
+                    width: 55px;
+                    height: 55px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &_temperature{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 5px;
+            }
+
+            &_speed{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+        &_hour3{
+            width: 130px;
+            border-radius: 40px;
+            background: #373636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 25px 18px 25px;
+
+            &_time{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            &_img{
+                width: 80px;
+                height: 80px;
+
+                &_direction{
+                    width: 55px;
+                    height: 55px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &_temperature{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 5px;
+            }
+
+            &_speed{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+        &_hour4{
+            width: 130px;
+            border-radius: 40px;
+            background: #373636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 25px 18px 25px;
+
+            &_time{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            &_img{
+                width: 80px;
+                height: 80px;
+
+                &_direction{
+                    width: 55px;
+                    height: 55px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &_temperature{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 5px;
+            }
+
+            &_speed{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+        &_hour5{
+            width: 130px;
+            border-radius: 40px;
+            background: #373636;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 13px 25px 18px 25px;
+
+            &_time{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+
+            &_img{
+                width: 80px;
+                height: 80px;
+
+                &_direction{
+                    width: 55px;
+                    height: 55px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            &_temperature{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                margin-bottom: 5px;
+            }
+
+            &_speed{
+                color: #FFF;
+                font-family: 'Poppins';
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+            }
+        }
+    }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <section class="weather">
+        <div class="container">
+            <div class="weatherPanel">
+                <div class="weatherPanel__mode">
+                    <div class="weatherPanel__mode_div">
+                        <div class="weatherPanel__mode_div_joystick"></div>
+                    </div>
+                    <p class="weatherPanel__mode_text">Dark Mode</p>
+                </div>
+                <form class="form">
+                    <img class="form__img" src="./img/search.svg" alt="searching icon">
+                    <input class="input" type="text" placeholder="Search for your preffered city...">
+                </form>
+                <div class="weatherPanel__location">
+                    <img class="weatherPanel__location_img" src="./img/current location icon.svg" alt="icon for searching location">
+                    <p class="weatherPanel__location_text">Current Location</p>
+                </div>
+            </div>
+            <div class="allInformation">
+                <div class="allInformation__1">
+                    <div class="location">
+                        <p class="location__city">Athens</p>
+                        <p class="location__time">09:03</p>
+                        <p class="location__data">Thursday, 31 Aug</p>
+                    </div>
+                    <div class="weatherDetails">
+                        <div class="weatherDetails__main">
+                            <div class="weatherDetails__main_temperature">
+                                <p class="weatherDetails__main_temperature_base">24°C</p>
+                                <div class="weatherDetails__main_temperature_feels">
+                                    <p class="weatherDetails__main_temperature_feels_text1">Feels like:</p>
+                                    <p class="weatherDetails__main_temperature_feels_text2">22°C</p>
+                                </div>
+                            </div>
+                            <div class="weatherDetails__main_sun">
+                                <div class="weatherDetails__main_sun_rise">
+                                    <!-- <img class="weatherDetails__main_sun_rise_img" src="./img/sunrise-white 1.svg" alt="sunrise time picture"> -->
+                                    <svg class="weatherDetails__main_sun_rise_img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect width="48" height="48" fill="url(#pattern0_17_245)"/>
+                                        <defs>
+                                        <pattern id="pattern0_17_245" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_17_245" transform="scale(0.02)"/>
+                                        </pattern>
+                                        <image id="image0_17_245" width="50" height="50" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB/ElEQVR4nO2Zyy4EQRSGi5hERGJjxCMgHoGNy4aFxCOI64zL0tblDXgE8SBYiEjcFtiwIhIbK+zmk2NOJ63NjKmZbqqkvqSTTlfXOf8/daqqM2VMxgArchmfAdaAEmXWjY8ACzET6P2q8QnK5VSqYKTkTZkB8zHRUloRi96YAeZiYj/LKHKRKDe5lo0vJpJGKozYsssmiom2L0b0WTH2/pxxBeBRRRUqtH0zos8L2ufBuAIwDIxWaatoRNtGpa/xAWoY8QqCEccII+IaYURcI4yIa/ynETkCDv9aRyAQCAT8BDgATo3v8I929k+M76AY38E1I0AXkPstI0Ab0GHb76egncALcAHkszYC5IEz4BlotxZcI3AOOFdNVzZmbD/jKZuQHKiZtoaF15HgBuhNNcH3HNdZ5MjczK+ZqJLwIo0alhgay7p00zAjid+SSYFW/Zd9R+fHk05aud8FRuSdRJ8e4L2RxcSk9Ct2J56NA5f8jAgeS/TtTnWFagSgBdiMneLKCrcE9MleoFe/Hu5EJSTvbkhf4wrAtop7BWZqiVPTs1qWwpZxAWAyZmLI8pQrMjORrcr6Nsp7FTPbQH854RXuUt/4bACmY3PCuta1zKI5M2X+CmBfRRSaiCFH1cJeuursRNyqiIEmYgxqjOtmxURD6zPHYkS+MH3n5AOmbkN4s1cmDwAAAABJRU5ErkJggg=="/>
+                                        </defs>
+                                    </svg>
+                                    <div class="weatherDetails__main_sun_rise_info">
+                                        <p class="weatherDetails__main_sun_rise_info_whatIs">Sunrise</p>
+                                        <p class="weatherDetails__main_sun_rise_info_time">06:37 AM</p>
+                                    </div>
+                                </div>
+                                <div class="weatherDetails__main_sun_set">
+                                    <img class="weatherDetails__main_sun_set_img" src="./img/sunset-white 1.svg" alt="sunset time picture">
+                                    <div class="weatherDetails__main_sun_set_info">
+                                        <p class="weatherDetails__main_sun_set_info_whatIs">Sunset</p>
+                                        <p class="weatherDetails__main_sun_set_info_time">20:37 AM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weatherDetails__weather">
+                            <img class="weatherDetails__weather_img" src="./img/clear 1.png" alt="weather picture">
+                            <p class="weatherDetails__weather_text">Sunny</p>
+                        </div>
+                        <div class="weatherDetails__details">
+                            <div class="weatherDetails__details_1">
+                                <div class="weatherDetails__details_humidity">
+                                    <!-- <img class="weatherDetails__details_humidity_img" src="" alt="humidity picture"> -->
+                                    <svg class="weatherDetails__details_humidity_img" width="60" height="51" viewBox="0 0 60 51" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <rect width="60" height="50.1266" fill="url(#pattern0_12_385)"/>
+                                        <defs>
+                                        <pattern id="pattern0_12_385" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                        <use xlink:href="#image0_12_385" transform="scale(0.0126582 0.0151515)"/>
+                                        </pattern>
+                                        <image id="image0_12_385" width="79" height="66" xlink:href="data:image/png;base64,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"/>
+                                        </defs>
+                                    </svg>
+                                    <p class="weatherDetails__details_humidity_percentage">41%</p>
+                                    <p class="weatherDetails__details_humidity_text">Humidity</p>
+                                </div>
+                                <div class="weatherDetails__details_windSpeed">
+                                    <img class="weatherDetails__details_windSpeed_img" src="./img/wind 1.png" alt="windSpeed picture">
+                                    <p class="weatherDetails__details_windSpeed_percentage">2km/h</p>
+                                    <p class="weatherDetails__details_windSpeed_text">Wind Speed</p>
+                                </div>
+                            </div>
+                            <div class="weatherDetails__details_2">
+                                <div class="weatherDetails__details_pressure">
+                                    <img class="weatherDetails__details_pressure_img" src="./img/pressure-white 1.png" alt="pressure picture">
+                                    <p class="weatherDetails__details_pressure_percentage">997hPa</p>
+                                    <p class="weatherDetails__details_pressure_text">Pressure</p>
+                                </div>
+                                <div class="weatherDetails__details_UV">
+                                    <img class="weatherDetails__details_UV_img" src="./img/uv-white 1.png" alt="UV picture">
+                                    <p class="weatherDetails__details_UV_percentage">8</p>
+                                    <p class="weatherDetails__details_UV_text">UV</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="allInformation__2">
+                    <div class="dailyForecast">
+                        <p class="dailyForecast__text">5 Days Forecast:</p>
+                        <div class="dailyForecast__div">
+                            <div class="dailyForecast__div_day1">
+                                <img  class="dailyForecast__div_day1_img" src="./img/clouds 1.png" alt="weather in day 1">
+                                <p class="dailyForecast__div_day1_temperature">20°C</p>
+                                <p class="dailyForecast__div_day1_data">Friday, 1 Sep</p>
+                            </div>
+                            <div class="dailyForecast__div_day2">
+                                <img  class="dailyForecast__div_day2_img" src="./img/clouds 1.png" alt="weather in day 2">
+                                <p class="dailyForecast__div_day2_temperature">20°C</p>
+                                <p class="dailyForecast__div_day2_data">Friday, 1 Sep</p>
+                            </div>
+                            <div class="dailyForecast__div_day3">
+                                <img  class="dailyForecast__div_day3_img" src="./img/clouds 1.png" alt="weather in day 3">
+                                <p class="dailyForecast__div_day3_temperature">20°C</p>
+                                <p class="dailyForecast__div_day3_data">Friday, 1 Sep</p>
+                            </div>
+                            <div class="dailyForecast__div_day4">
+                                <img  class="dailyForecast__div_day4_img" src="./img/clouds 1.png" alt="weather in day 4">
+                                <p class="dailyForecast__div_day4_temperature">20°C</p>
+                                <p class="dailyForecast__div_day4_data">Friday, 1 Sep</p>
+                            </div>
+                            <div class="dailyForecast__div_day5">
+                                <img  class="dailyForecast__div_day5_img" src="./img/clouds 1.png" alt="weather in day 5">
+                                <p class="dailyForecast__div_day5_temperature">20°C</p>
+                                <p class="dailyForecast__div_day5_data">Friday, 1 Sep</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hourlyForecast">
+                        <p class="hourlyForecast__text">Hourly Forecast:</p>
+                        <div class="hourlyForecast__div">
+                            <div class="hourlyForecast__div_hour1">
+                                <p class="hourlyForecast__div_hour1_time">12:00</p>
+                                <img  class="hourlyForecast__div_hour1_img" src="./img/clear 3.png" alt="weather in hour 1">
+                                <p class="hourlyForecast__div_hour1_temperature">26°C</p>
+                                <img  class="hourlyForecast__div_hour1_img_direction" src="./img/navigation 1.png" alt="weather in hour 1">
+                                <p class="hourlyForecast__div_hour1_speed">3km/h</p>
+                            </div>
+                            <div class="hourlyForecast__div_hour2">
+                                <p class="hourlyForecast__div_hour2_time">12:00</p>
+                                <img  class="hourlyForecast__div_hour2_img" src="./img/clear 3.png" alt="weather in hour 2">
+                                <p class="hourlyForecast__div_hour2_temperature">26°C</p>
+                                <img  class="hourlyForecast__div_hour2_img_direction" src="./img/navigation 1.png" alt="weather in hour 2">
+                                <p class="hourlyForecast__div_hour2_speed">3km/h</p>
+                            </div>
+                            <div class="hourlyForecast__div_hour3">
+                                <p class="hourlyForecast__div_hour3_time">12:00</p>
+                                <img  class="hourlyForecast__div_hour3_img" src="./img/clear 3.png" alt="weather in hour 3">
+                                <p class="hourlyForecast__div_hour3_temperature">26°C</p>
+                                <img  class="hourlyForecast__div_hour3_img_direction" src="./img/navigation 1.png" alt="weather in hour 3">
+                                <p class="hourlyForecast__div_hour3_speed">3km/h</p>
+                            </div>
+                            <div class="hourlyForecast__div_hour4">
+                                <p class="hourlyForecast__div_hour4_time">12:00</p>
+                                <img  class="hourlyForecast__div_hour4_img" src="./img/clear 3.png" alt="weather in hour 4">
+                                <p class="hourlyForecast__div_hour4_temperature">26°C</p>
+                                <img  class="hourlyForecast__div_hour4_img_direction" src="./img/navigation 1.png" alt="weather in hour 4">
+                                <p class="hourlyForecast__div_hour4_speed">3km/h</p>
+                            </div>
+                            <div class="hourlyForecast__div_hour5">
+                                <p class="hourlyForecast__div_hour5_time">12:00</p>
+                                <img  class="hourlyForecast__div_hour5_img" src="./img/clear 3.png" alt="weather in hour 5">
+                                <p class="hourlyForecast__div_hour5_temperature">26°C</p>
+                                <img  class="hourlyForecast__div_hour5_img_direction" src="./img/navigation 1.png" alt="weather in hour 5">
+                                <p class="hourlyForecast__div_hour5_speed">3km/h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
