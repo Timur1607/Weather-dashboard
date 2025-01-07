@@ -1,9 +1,17 @@
+:root{
+    color: #fff;
+}
+
 .weather{
     padding: 68px 0;
     background: linear-gradient(110deg, #383838 0%, rgba(158, 158, 158, 0.00) 71.82%);
+    background-color: #111111;
 }
 
-
+.main_script{
+    background: linear-gradient(113deg, #FFF 0.28%, rgba(70, 97, 115, 0.00) 178.65%);
+    background-color: #111111;
+}
 
 .weatherPanel{
     display: flex;
@@ -18,6 +26,14 @@
             border-radius: 40px;
             background: #D9D9D9;
             position: relative;
+            &:active{
+                opacity: 0.5;
+                color: #111111;
+                .weatherPanel__mode_div_joystick{
+                    animation: 1s;
+                    display: none;
+                }
+            }
 
             &_joystick{
                 width: 30px;
@@ -27,11 +43,16 @@
                 position: absolute;
                 top: 5px;
                 right: 13px;
+
+                &_script{
+                    left: 13px;
+                    transition: 0.5s;
+                }
             }
         }
 
         &_text{
-            color: #FFF;
+            // color: #FFF;
             font-family: 'Poppins';
             font-size: 18px;
             font-style: normal;
@@ -60,13 +81,19 @@
         }
 
         &_text{
-            color: rgba(255, 255, 255, 0.80);
+            // color: rgba(255, 255, 255, 0.80);
             text-align: center;
             font-family: 'Poppins';
             font-size: 22px;
             font-style: normal;
             font-weight: 800;
             line-height: normal;
+        }
+
+        &:active{
+            opacity: 0.5;
+            color: #111111;
+            transition: 0.3s;
         }
     }
 }
@@ -91,12 +118,15 @@
     box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
     border: none;
     padding-left: 102px;
-    color: rgba(255, 255, 255, 0.60);
     font-family: 'Poppins';
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    &::placeholder{
+        // color: rgba(255, 255, 255, 0.60);
+    }
 }
 
 .allInformation{
@@ -128,7 +158,7 @@
     box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
 
     &__city{
-        color: #FFF;
+        // color: #FFF;
         font-family: 'Poppins';
         font-size: 36px;
         font-style: normal;
@@ -138,7 +168,7 @@
     }
 
     &__time{
-        color: #FFF;
+        // color: #FFF;
         font-family: 'Poppins';
         font-size: 96px;
         font-style: normal;
@@ -147,7 +177,7 @@
     }
 
     &__data{
-        color: #FFF;
+        // color: #FFF;
         font-family: 'Poppins';
         font-size: 20px;
         font-style: normal;
@@ -194,7 +224,7 @@
                 align-items: center;
 
                 &_text1{
-                    color: rgba(255, 255, 255, 0.80);
+                    // color: rgba(255, 255, 255, 0.80);
                     font-family: 'Poppins';
                     font-size: 20px;
                     font-style: normal;
@@ -203,7 +233,7 @@
                 }
 
                 &_text2{
-                    color: rgba(255, 255, 255, 0.80);
+                    // color: rgba(255, 255, 255, 0.80);
                     font-family: 'Poppins';
                     font-size: 32px;
                     font-style: normal;
@@ -231,7 +261,7 @@
                     flex-direction: column;
 
                     &_whatIs{
-                        color: #FFF;
+                        // color: #FFF;
                         font-family: 'Poppins';
                         font-size: 20px;
                         font-style: normal;
@@ -241,7 +271,7 @@
                     }
 
                     &_time{
-                        color: #FFF;
+                        // color: #FFF;
                         font-family: 'Poppins';
                         font-size: 16px;
                         font-style: normal;
@@ -265,7 +295,7 @@
                     flex-direction: column;
 
                     &_whatIs{
-                        color: #FFF;
+                        // color: #FFF;
                         font-family: 'Poppins';
                         font-size: 20px;
                         font-style: normal;
@@ -275,7 +305,7 @@
                     }
 
                     &_time{
-                        color: #FFF;
+                        // color: #FFF;
                         font-family: 'Poppins';
                         font-size: 16px;
                         font-style: normal;
@@ -297,7 +327,7 @@
         }
 
         &_text{
-            color: #FFF;
+            // color: #FFF;
             text-align: center;
             font-family: 'Poppins';
             font-size: 32px;
@@ -334,7 +364,7 @@
             }
 
             &_percentage{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -345,7 +375,7 @@
             }
 
             &_text{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 16px;
@@ -365,7 +395,7 @@
             }
 
             &_percentage{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -376,7 +406,7 @@
             }
 
             &_text{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 16px;
@@ -398,7 +428,7 @@
             }
 
             &_percentage{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -409,7 +439,7 @@
             }
 
             &_text{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 16px;
@@ -431,7 +461,7 @@
             }
 
             &_percentage{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -442,7 +472,7 @@
             }
 
             &_text{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 16px;
@@ -464,7 +494,7 @@
     box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
 
     &__text{
-        color: #FFF;
+        // color: #FFF;
         text-align: center;
         font-family: 'Poppins';
         font-size: 32px;
@@ -483,7 +513,7 @@
             gap: 43px;
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 24px;
@@ -495,7 +525,7 @@
             }
 
             &_data{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -514,7 +544,7 @@
             gap: 43px;
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 24px;
@@ -526,7 +556,7 @@
             }
 
             &_data{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -545,7 +575,7 @@
             gap: 43px;
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 24px;
@@ -557,7 +587,7 @@
             }
 
             &_data{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -576,7 +606,7 @@
             gap: 43px;
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 24px;
@@ -588,7 +618,7 @@
             }
 
             &_data{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -607,7 +637,7 @@
             gap: 43px;
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 24px;
@@ -619,7 +649,7 @@
             }
 
             &_data{
-                color: #FFF;
+                // color: #FFF;
                 text-align: center;
                 font-family: 'Poppins';
                 font-size: 20px;
@@ -647,7 +677,7 @@
     gap: 19px;
 
     &__text{
-        color: #FFF;
+        // color: #FFF;
         font-family: 'Poppins';
         font-size: 32px;
         font-style: normal;
@@ -671,7 +701,7 @@
             padding: 13px 25px 18px 25px;
 
             &_time{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 24px;
                 font-style: normal;
@@ -687,11 +717,12 @@
                     width: 55px;
                     height: 55px;
                     margin-bottom: 10px;
+                    transform: rotate(0);
                 }
             }
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -701,7 +732,7 @@
             }
 
             &_speed{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -719,7 +750,7 @@
             padding: 13px 25px 18px 25px;
 
             &_time{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 24px;
                 font-style: normal;
@@ -739,7 +770,7 @@
             }
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -749,7 +780,7 @@
             }
 
             &_speed{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -767,7 +798,7 @@
             padding: 13px 25px 18px 25px;
 
             &_time{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 24px;
                 font-style: normal;
@@ -787,7 +818,7 @@
             }
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -797,7 +828,7 @@
             }
 
             &_speed{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -815,7 +846,7 @@
             padding: 13px 25px 18px 25px;
 
             &_time{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 24px;
                 font-style: normal;
@@ -835,7 +866,7 @@
             }
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -845,7 +876,7 @@
             }
 
             &_speed{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -863,7 +894,7 @@
             padding: 13px 25px 18px 25px;
 
             &_time{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 24px;
                 font-style: normal;
@@ -883,7 +914,7 @@
             }
 
             &_temperature{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -893,7 +924,7 @@
             }
 
             &_speed{
-                color: #FFF;
+                // color: #FFF;
                 font-family: 'Poppins';
                 font-size: 20px;
                 font-style: normal;
@@ -902,4 +933,8 @@
             }
         }
     }
+}
+
+.windows_script{
+    background: #D9D9D9;
 }
