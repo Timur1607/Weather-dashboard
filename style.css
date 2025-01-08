@@ -85,6 +85,9 @@ table {
   justify-content: space-between;
   margin-bottom: 49px;
 }
+.weatherPanel__mode {
+  cursor: pointer;
+}
 .weatherPanel__mode_div {
   width: 100px;
   height: 38.6px;
@@ -133,6 +136,7 @@ table {
   justify-content: center;
   align-items: center;
   gap: 4px;
+  cursor: pointer;
 }
 .weatherPanel__location_img {
   width: 35px;

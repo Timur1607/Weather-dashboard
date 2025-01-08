@@ -143,12 +143,27 @@ let arr = [
 ]
 
 let firsWindowInformation = (dataMain) => {
+    let timeZone = null
+    timeZone = dataMain.timezone
     unixTimeStamp = dataMain.dt
-    date = new Date((unixTimeStamp+3600) * 1000)
+    date = new Date((unixTimeStamp - 10800) * 1000)
+    
+    if(dataMain.timezone > 0){
+        date = new Date(((unixTimeStamp-10800) + timeZone) * 1000)
+        console.log("больше нуля");
+        
+    } else if(dataMain.timezone == 0){
+        date = new Date((unixTimeStamp-10800) * 1000)
+        console.log("ноль");
+    } else if(dataMain.timezone < 0){
+        date = new Date(((unixTimeStamp-10800) - timeZone) * 1000)
+        console.log("меньше нуля");
+    }
+    console.log(date);
     
     locationCity.textContent = `${dataMain.name}`
-    if(date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[1] === 'PM'){ 
-        locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]+12}:${date.toLocaleString("en-US", {minute: "numeric"})}`
+    if(date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[1] === 'PM'){
+        locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0] + 12}:${date.toLocaleString("en-US", {minute: "numeric"})}`
         if(date.toLocaleString("en-US", {minute: "numeric"}).length === 1){
             locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]+12}:${'0' + date.toLocaleString("en-US", {minute: "numeric"})}`
         }
@@ -215,7 +230,6 @@ let getInfoFor5Hours = (data, i, n, temp) => {
             arr[i].hourDiv.style.setProperty('background-color', `#fff`)
         }
     } else{
-        console.log('обратно');
         arr[i].hourDiv.style.setProperty('background', `#373636`)
     }
 }
@@ -250,7 +264,7 @@ async function getPosition(Data) {
     let cityName = dataMain.name
     const geoHourlyForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&cnt=40&appid=${API}`)
     const dataHourlyForecast = await geoHourlyForecast.json()
-    console.log(dataHourlyForecast);
+    // console.log(dataHourlyForecast);
     myCITY = dataMain.name
     
     getWeather(dataMain, data,temp = 0)
@@ -271,6 +285,7 @@ async function notGetPosition() {
     const dataForecast = await geoForecast.json()
     let temp = 1
     getWeather(dataLast, dataForecast, temp)
+    input.value = ''
 }
 
 async function searchCity(event) {

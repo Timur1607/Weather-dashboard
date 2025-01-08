@@ -17,8 +17,10 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 49px;
+    
 
     &__mode{
+        cursor: pointer;
         
         &_div{
             width: 100px;
@@ -74,6 +76,7 @@
         justify-content: center;
         align-items: center;
         gap: 4px;
+        cursor: pointer;
 
         &_img{
             width: 35px;
