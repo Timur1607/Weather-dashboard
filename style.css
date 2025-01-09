@@ -59,9 +59,9 @@ table {
   src: url(./font/Poppins-Regular.eot), url(./font/Poppins-Regular.otf), url(./font/Poppins-Regular.ttf), url(./font/Poppins-Regular.woff), url(./font/Poppins-Regular.woff2);
 }
 .container {
-  max-width: 1472px;
+  max-width: 1512px;
   width: 100%;
-  padding: 0 40px;
+  padding: 0 80px;
   margin: 0 auto;
 }
 
@@ -181,7 +181,15 @@ table {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: rgba(255, 255, 255, 0.6);
 }
+.input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .allInformation {
   display: flex;
   flex-direction: column;
@@ -191,11 +199,13 @@ table {
   display: flex;
   flex-direction: row;
   gap: 55px;
+  justify-content: space-between;
 }
 .allInformation__2 {
   display: flex;
   flex-direction: row;
   gap: 61px;
+  justify-content: space-between;
 }
 
 .location {
@@ -334,10 +344,12 @@ table {
 .weatherDetails__weather {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
 }
 .weatherDetails__weather_img {
-  width: 230px;
-  height: 230px;
+  width: 270px;
+  height: 270px;
+  margin: 0 auto;
 }
 .weatherDetails__weather_text {
   text-align: center;
@@ -514,6 +526,10 @@ table {
   width: 163px;
   justify-content: center;
 }
+.dailyForecast__div_day1_img {
+  width: 60px;
+  height: 60px;
+}
 .dailyForecast__div_day2 {
   display: flex;
   flex-direction: row;
@@ -540,6 +556,10 @@ table {
   align-items: center;
   width: 163px;
   justify-content: center;
+}
+.dailyForecast__div_day2_img {
+  width: 60px;
+  height: 60px;
 }
 .dailyForecast__div_day3 {
   display: flex;
@@ -568,6 +588,10 @@ table {
   width: 163px;
   justify-content: center;
 }
+.dailyForecast__div_day3_img {
+  width: 60px;
+  height: 60px;
+}
 .dailyForecast__div_day4 {
   display: flex;
   flex-direction: row;
@@ -594,6 +618,10 @@ table {
   align-items: center;
   width: 163px;
   justify-content: center;
+}
+.dailyForecast__div_day4_img {
+  width: 60px;
+  height: 60px;
 }
 .dailyForecast__div_day5 {
   display: flex;
@@ -622,17 +650,23 @@ table {
   width: 163px;
   justify-content: center;
 }
+.dailyForecast__div_day5_img {
+  width: 60px;
+  height: 60px;
+}
 
 .hourlyForecast {
-  width: 870px;
+  max-width: 870px;
+  width: 100%;
   border-radius: 30px;
   background: #444;
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
-  padding: 13px 80px 16px 80px;
+  padding: 13px 40px 16px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 19px;
+  margin: 0 auto;
 }
 .hourlyForecast__text {
   font-family: "Poppins";
@@ -851,4 +885,25 @@ table {
 
 .windows_script {
   background: #D9D9D9;
+}
+
+@media screen and (max-width: 1390px) {
+  .location {
+    padding: 53px 50px 48px 50px;
+  }
+  .hourlyForecast__div_hour1 {
+    padding: 13px 12px 18px 12px;
+  }
+  .hourlyForecast__div_hour2 {
+    padding: 13px 12px 18px 12px;
+  }
+  .hourlyForecast__div_hour3 {
+    padding: 13px 12px 18px 12px;
+  }
+  .hourlyForecast__div_hour4 {
+    padding: 13px 12px 18px 12px;
+  }
+  .hourlyForecast__div_hour5 {
+    padding: 13px 12px 18px 12px;
+  }
 }/*# sourceMappingURL=style.css.map */

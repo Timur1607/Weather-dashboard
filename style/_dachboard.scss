@@ -126,9 +126,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    color: rgba(255, 255, 255, 0.60);
 
     &::placeholder{
-        // color: rgba(255, 255, 255, 0.60);
+        color: rgba(255, 255, 255, 0.60);
     }
 }
 
@@ -141,11 +142,13 @@
         display: flex;
         flex-direction: row;
         gap: 55px;
+        justify-content: space-between;
     }
     &__2{
         display: flex;
         flex-direction: row;
         gap: 61px;
+        justify-content: space-between;
     }
 }
 
@@ -323,10 +326,12 @@
     &__weather{
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
 
         &_img{
-            width: 230px;
-            height: 230px;
+            width: 270px;
+            height: 270px;
+            margin: 0 auto;
         }
 
         &_text{
@@ -540,6 +545,11 @@
                 width: 163px;
                 justify-content: center;
             }
+
+            &_img{
+                width: 60px;
+                height: 60px;
+            }
         }
         &_day2{
             display: flex;
@@ -570,6 +580,10 @@
                 align-items: center;
                 width: 163px;
                 justify-content: center;
+            }
+            &_img{
+                width: 60px;
+                height: 60px;
             }
         }
         &_day3{
@@ -602,6 +616,10 @@
                 width: 163px;
                 justify-content: center;
             }
+            &_img{
+                width: 60px;
+                height: 60px;
+            }
         }
         &_day4{
             display: flex;
@@ -632,6 +650,10 @@
                 align-items: center;
                 width: 163px;
                 justify-content: center;
+            }
+            &_img{
+                width: 60px;
+                height: 60px;
             }
         }
         &_day5{
@@ -664,20 +686,26 @@
                 width: 163px;
                 justify-content: center;
             }
+            &_img{
+                width: 60px;
+                height: 60px;
+            }
         }
     }
 }
 
 .hourlyForecast{
-    width: 870px;
+    max-width: 870px;
+    width: 100%;
     border-radius: 30px;
     background: #444;
     box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.50);
-    padding: 13px 80px 16px 80px;
+    padding: 13px 40px 16px 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 19px;
+    margin: 0 auto;
 
     &__text{
         // color: #FFF;
@@ -940,4 +968,27 @@
 
 .windows_script{
     background: #D9D9D9;
+}
+
+@media screen and (max-width:1390px){
+    .location{
+        padding: 53px 50px 48px 50px;
+    }
+    .hourlyForecast__div{
+        &_hour1{
+            padding: 13px 12px 18px 12px;
+        }
+        &_hour2{
+            padding: 13px 12px 18px 12px;
+        }
+        &_hour3{
+            padding: 13px 12px 18px 12px;
+        }
+        &_hour4{
+            padding: 13px 12px 18px 12px;
+        }
+        &_hour5{
+            padding: 13px 12px 18px 12px;
+        }
+    }
 }

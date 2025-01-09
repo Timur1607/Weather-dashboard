@@ -12,7 +12,9 @@ let changeFashionJoystick = document.querySelector('.weatherPanel__mode_div_joys
 let changeFashionText = document.querySelector('.weatherPanel__mode_text')
 let changeFashionWeather = document.querySelector('.weather')
 let button = false
-let myCITY = ''
+let myCITY = 'Moscow'
+let checking = 0
+let locationC = ''
 
 let sunriseImg = document.querySelector('.weatherDetails__main_sun_rise_img')
 let sunsetImg = document.querySelector('.weatherDetails__main_sun_set_img')
@@ -52,6 +54,11 @@ let day2Data = document.querySelector('.dailyForecast__div_day2_data ')
 let day3Data = document.querySelector('.dailyForecast__div_day3_data ')
 let day4Data = document.querySelector('.dailyForecast__div_day4_data ')
 let day5Data = document.querySelector('.dailyForecast__div_day5_data ')
+let imgFor1day = document.querySelector('.dailyForecast__div_day1_img')
+let imgFor2day = document.querySelector('.dailyForecast__div_day2_img')
+let imgFor3day = document.querySelector('.dailyForecast__div_day3_img')
+let imgFor4day = document.querySelector('.dailyForecast__div_day4_img')
+let imgFor5day = document.querySelector('.dailyForecast__div_day5_img')
 
 let hour1data = document.querySelector('.hourlyForecast__div_hour1_time')
 let hour1img = document.querySelector('.hourlyForecast__div_hour1_img')
@@ -94,7 +101,8 @@ let arr = [
         'hourTemp': hour1temp,
         'hourdirection': hour1direction,
         'hourSpeed': hour1speed,
-        'hourDiv': hour1div
+        'hourDiv': hour1div,
+        'img': imgFor1day
     },
     {
         'temp': tempFor2day,
@@ -105,7 +113,8 @@ let arr = [
         'hourTemp': hour2temp,
         'hourdirection': hour2direction,
         'hourSpeed': hour2speed,
-        'hourDiv': hour2div
+        'hourDiv': hour2div,
+        'img': imgFor2day
     },
     {
         'temp': tempFor3day,
@@ -116,7 +125,8 @@ let arr = [
         'hourTemp': hour3temp,
         'hourdirection': hour3direction,
         'hourSpeed': hour3speed,
-        'hourDiv': hour3div
+        'hourDiv': hour3div,
+        'img': imgFor3day
     },
     {
         'temp': tempFor4day,
@@ -127,7 +137,8 @@ let arr = [
         'hourTemp': hour4temp,
         'hourdirection': hour4direction,
         'hourSpeed': hour4speed,
-        'hourDiv': hour4div
+        'hourDiv': hour4div,
+        'img': imgFor4day
     },
     {
         'temp': tempFor5day,
@@ -138,7 +149,8 @@ let arr = [
         'hourTemp': hour5temp,
         'hourdirection': hour5direction,
         'hourSpeed': hour5speed,
-        'hourDiv': hour5div
+        'hourDiv': hour5div,
+        'img': imgFor5day
     }
 ]
 
@@ -146,40 +158,18 @@ let firsWindowInformation = (dataMain) => {
     let timeZone = null
     timeZone = dataMain.timezone
     unixTimeStamp = dataMain.dt
-    date = new Date((unixTimeStamp - 10800) * 1000)
+    date = new Date((unixTimeStamp) * 1000)
     
     if(dataMain.timezone > 0){
-        date = new Date(((unixTimeStamp-10800) + timeZone) * 1000)
-        console.log("больше нуля");
-        
+        date = new Date(((unixTimeStamp) + timeZone - 10800) * 1000)
     } else if(dataMain.timezone == 0){
-        date = new Date((unixTimeStamp-10800) * 1000)
-        console.log("ноль");
+        date = new Date((unixTimeStamp - 10800) * 1000)
     } else if(dataMain.timezone < 0){
-        date = new Date(((unixTimeStamp-10800) - timeZone) * 1000)
-        console.log("меньше нуля");
+        date = new Date(((unixTimeStamp) + timeZone) * 1000)
     }
-    console.log(date);
     
     locationCity.textContent = `${dataMain.name}`
-    if(date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[1] === 'PM'){
-        locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0] + 12}:${date.toLocaleString("en-US", {minute: "numeric"})}`
-        if(date.toLocaleString("en-US", {minute: "numeric"}).length === 1){
-            locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]+12}:${'0' + date.toLocaleString("en-US", {minute: "numeric"})}`
-        }
-    } else{
-        if(+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0] < 10){
-            locationTime.textContent = `${'0' + date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]}:${date.toLocaleString("en-US", {minute: "numeric"})}`
-            if(date.toLocaleString("en-US", {minute: "numeric"}).length === 1){
-                locationTime.textContent = `${'0' + date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]+12}:${'0' + date.toLocaleString("en-US", {minute: "numeric"})}`
-            }
-        }
-        locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]}:${date.toLocaleString("en-US", {minute: "numeric"})}`
-        if(date.toLocaleString("en-US", {minute: "numeric"}).length === 1){
-            locationTime.textContent = `${+date.toLocaleString("en-US", {hour: "numeric"}).split(' ')[0]+12}:${'0' + date.toLocaleString("en-US", {minute: "numeric"})}`
-        }
-    }
-
+    locationTime.textContent = `${date.toLocaleString().split(' ')[1].split(':')[0]}:${date.toLocaleString().split(' ')[1].split(':')[1]}`
     locationData.textContent = `${date.toLocaleString("en-US", {weekday: "long"})}, ${date.toLocaleString("en-US", {day: "numeric"})} ${date.toLocaleString("en-US", {month: "short"})}`
     
     temperature.textContent = `${(dataMain.main.temp - 273.15).toFixed(0)}°C`
@@ -199,13 +189,17 @@ let firsWindowInformation = (dataMain) => {
     let sunsetCodeDate = new Date(sunsetCode * 1000)
     sunset.textContent = `${sunsetCodeDate.toLocaleString("en-US", {timeZoneName: "short"}).split(' ')[1].split(":")[0]}:${sunsetCodeDate.toLocaleString("en-US", {timeZoneName: "short"}).split(' ')[1].split(":")[1]} ${sunsetCodeDate.toLocaleString("en-US", {timeZoneName: "short"}).split(' ')[2]}`
 
-}
+} ///          информация первых двух окошек
 
 let getInfoFor5days = (data, date, i, temp) => {
     let f = null
     if(temp === 1){
         f = 273.15
     }
+    // console.log(data);
+    
+    // console.log(data.list[arr[i].numb].weather[0].icon);
+    arr[i].img.src = `https://openweathermap.org/img/wn/${data.list[arr[i].numb].weather[0].icon}@2x.png`
     arr[i].temp.textContent = `${(data.list[arr[i].numb].main.temp - f).toFixed(0)}°C`
     arr[i].name.textContent = `${date.toLocaleString("en-US", {weekday: "long"})}, ${date.toLocaleString("en-US", {day: "numeric"})} ${date.toLocaleString("en-US", {month: "short"})}`
 }
@@ -215,7 +209,9 @@ let getInfoFor5Hours = (data, i, n, temp) => {
     if(temp === 1){
         f = 273.15
     }
-    arr[i].hourData.textContent = `${data.list[n].dt_txt.split(' ')[1].split(':')[0]}:${data.list[n].dt_txt.split(' ')[1].split(':')[1]}`
+    // console.log(date.toLocaleString().split(' ')[1].split(':')[0]);
+
+    arr[i].hourData.textContent = `${date.toLocaleString().split(' ')[1].split(':')[0]}:${date.toLocaleString().split(' ')[1].split(':')[1]}`
     arr[i].hourImg.src = `https://openweathermap.org/img/wn/${data.list[n].weather[0].icon}@2x.png`
     arr[i].hourTemp.textContent = `${(data.list[n].main.temp - f).toFixed(0)}°C`
     arr[i].hourdirection.style.setProperty('transform', `rotate(${data.list[n].wind.deg}deg)`)
@@ -240,16 +236,27 @@ let getWeather = (dataMain, data, temp) => {
 
     for(let i = 0; i<arr.length; i++){
         unixTimeStamp = data.list[arr[i].numb].dt
-        date = new Date(unixTimeStamp * 1000)
+        
+        date = new Date((unixTimeStamp) * 1000)
         getInfoFor5days(data, date, i, temp)
     }
 
     let n = 0 
+    console.log(data);
+    
     for(let i = 0; i < arr.length; i++){
         n++
         unixTimeStamp = data.list[n].dt
-        date = new Date(unixTimeStamp * 1000)
-        getInfoFor5Hours(data, i, n, temp)
+        let timezone = data.city.timezone
+        if(data.city.timezone > 0){
+            date = new Date((unixTimeStamp + timezone - 10800) * 1000)
+        } else if(data.city.timezone == 0){
+            date = new Date((unixTimeStamp-10800) * 1000)
+        } else if(data.city.timezone < 0){
+            date = new Date(((unixTimeStamp-10800) + timezone) * 1000)
+        }
+        getInfoFor5Hours(data, i, n, temp, date)
+        
     }
 }
 
@@ -262,51 +269,76 @@ async function getPosition(Data) {
     const main = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API}`)
     const dataMain = await main.json()
     let cityName = dataMain.name
+    locationC = dataMain.name
     const geoHourlyForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&cnt=40&appid=${API}`)
     const dataHourlyForecast = await geoHourlyForecast.json()
     // console.log(dataHourlyForecast);
     myCITY = dataMain.name
+    console.log(locationC);
     
     getWeather(dataMain, data,temp = 0)
-    return myCITY
+    return myCITY, locationC
 }
 
-async function notGetPosition() {
+async function notGetPosition(numb) {
     const geo = await fetch(`https://api.ipify.org?format=json`)
     const data = await geo.json()
+    // console.log(data);
+    
     const geotime = await fetch(`https://geo.ipify.org/api/v2/country?apiKey=at_i6rHVLjG83GMHtTUwy5VTe0xqAGnu&ipAddress=${data.ip}`)
     const datatime = await geotime.json()
+    
     let CITY = datatime.location.region
+    // console.log(datatime);
+    if(numb !== '0'){
+        CITY = myCITY
+        console.log('тут');
+    } else{
+        CITY = datatime.location.region
+    }
     
-    const geoLast = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API}`)
+    console.log(CITY);
+    
+    const geoLast = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY.split(' ')[0]}&appid=${API}`)
     const dataLast = await geoLast.json()
+    // console.log(dataLast);
     
+    
+    if(numb !== '0'){
+        CITY = myCITY
+    } else{
+        CITY = dataLast.name
+    }
     const geoForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API}`)
     const dataForecast = await geoForecast.json()
     let temp = 1
     getWeather(dataLast, dataForecast, temp)
     input.value = ''
+    return checking, locationC
 }
 
 async function searchCity(event) {
     if(event === '0'){
         if(myCITY !== ''){
             CITY = myCITY
+            console.log('да');
         }
     } else{
         event.preventDefault()
         CITY = input.value
         myCITY = CITY
     }
-    console.log(input.value);
+    // console.log(input.value);
+    // CITY = locationC
+    console.log(CITY);
     
     const geoLast = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API}`)
     const dataLast = await geoLast.json()
-    console.log(dataLast);
+    // console.log(dataLast);
     
     const geoForecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API}`)
     const dataForecast = await geoForecast.json()
-    console.log(dataForecast);
+    // console.log(dataForecast);
     let temp = 1
     getWeather(dataLast, dataForecast, temp)
     input.value = ''
@@ -316,9 +348,11 @@ async function searchCity(event) {
 form.addEventListener('submit', () =>{
     searchCity(event)
 })
-backToCity.addEventListener('click', () => notGetPosition())
 
-
+backToCity.addEventListener('click', () => {
+    checking = 1
+    notGetPosition('0')
+})
 
 changeFashion.addEventListener('click', () => {
     changeFashionJoystick.classList.toggle('weatherPanel__mode_div_joystick_script')
@@ -333,14 +367,14 @@ changeFashion.addEventListener('click', () => {
         BaseTemperature.style.setProperty('background', 'linear-gradient(84deg, #292929 -16.56%, #fff 128.43%)')
         BaseTemperature.style.setProperty('-webkit-text-fill-color', 'transparent')
         BaseTemperature.style.setProperty('-webkit-background-clip', 'text')
-        searchCity('0')
+        notGetPosition()
 
         sunriseImg.src = './img/black/sunrise-white 1.png'
         sunsetImg.src = './img/black/sunset-white 1.png'
         humidityImg.src = './img/black/humidity 1.png'
         windSpeedImg.src = './img/black/wind 1.png'
         pressureImg.src = './img/black/pressure-white 1.png'
-        UVImg.src = './img/black/wind 1.png'
+        UVImg.src = './img/black/uv-white 1.png'
         button = true
     } else{
         document.documentElement.style.setProperty('color', '#fff');
@@ -355,7 +389,7 @@ changeFashion.addEventListener('click', () => {
         pressureImg.src = `./img/pressure-white 1.png`
         UVImg.src = `./img/uv-white 1.png`
         button = false
-        searchCity('0')
+        notGetPosition()
     }
     return button
 })
