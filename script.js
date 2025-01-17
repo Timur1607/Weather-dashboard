@@ -16,6 +16,8 @@ let myCITY = 'Moscow'
 let checking = 0
 let locationC = ''
 
+
+
 let sunriseImg = document.querySelector('.weatherDetails__main_sun_rise_img')
 let sunsetImg = document.querySelector('.weatherDetails__main_sun_set_img')
 let humidityImg = document.querySelector('.weatherDetails__details_humidity_img')
@@ -354,13 +356,12 @@ backToCity.addEventListener('click', () => {
     notGetPosition('0')
 })
 
-changeFashion.addEventListener('click', () => {
-    changeFashionJoystick.classList.toggle('weatherPanel__mode_div_joystick_script')
-    locations.classList.toggle('windows_script')
-    weatherDetails.classList.toggle('windows_script')
-    hourlyForecast.classList.toggle('windows_script')
-    dailyForecast.classList.toggle('windows_script')
-    changeFashionWeather.classList.toggle('main_script')
+let changedFashion = (phase) => {
+    if(phase == '0'){
+        button = false
+    } else{
+        button = true
+    }
     
     if(button === false){
         document.documentElement.style.setProperty('color', '#292929');
@@ -368,6 +369,13 @@ changeFashion.addEventListener('click', () => {
         BaseTemperature.style.setProperty('-webkit-text-fill-color', 'transparent')
         BaseTemperature.style.setProperty('-webkit-background-clip', 'text')
         notGetPosition()
+
+        changeFashionJoystick.classList.toggle('weatherPanel__mode_div_joystick_script')
+        locations.classList.toggle('windows_script')
+        weatherDetails.classList.toggle('windows_script')
+        hourlyForecast.classList.toggle('windows_script')
+        dailyForecast.classList.toggle('windows_script')
+        changeFashionWeather.classList.toggle('main_script')
 
         sunriseImg.src = './img/black/sunrise-white 1.png'
         sunsetImg.src = './img/black/sunset-white 1.png'
@@ -392,6 +400,11 @@ changeFashion.addEventListener('click', () => {
         notGetPosition()
     }
     return button
-})
+}
+
+const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log(isDarkMode ? '' : changedFashion('0'));
+
+changeFashion.addEventListener('click', () => changedFashion())
 
 navigator.geolocation.getCurrentPosition(getPosition, notGetPosition)

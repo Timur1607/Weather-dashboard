@@ -176,7 +176,7 @@ table {
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
   border: none;
   padding-left: 102px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -220,7 +220,7 @@ table {
   box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.5);
 }
 .location__city {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
@@ -887,6 +887,30 @@ table {
   background: #D9D9D9;
 }
 
+@media screen and (max-width: 1412px) {
+  .hourlyForecast__div_time {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .hourlyForecast__div_img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+  .hourlyForecast__div_temperature {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .hourlyForecast__div_direction {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 10px;
+  }
+  .hourlyForecast__div_speed {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
 @media screen and (max-width: 1390px) {
   .location {
     padding: 53px 50px 48px 50px;
